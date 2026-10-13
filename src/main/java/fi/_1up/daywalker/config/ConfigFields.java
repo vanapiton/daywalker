@@ -2,6 +2,7 @@ package fi._1up.daywalker.config;
 
 import net.glasslauncher.mods.gcapi3.api.ConfigCategory;
 
+@SuppressWarnings("CanBeFinal")
 public class ConfigFields {
 
     @ConfigCategory(

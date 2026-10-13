@@ -6,6 +6,7 @@ import net.glasslauncher.mods.gcapi3.api.ConfigEntry;
 import static fi._1up.daywalker.Daywalker.MAX_CONFIG;
 import static fi._1up.daywalker.Daywalker.MIN_CONFIG;
 
+@SuppressWarnings("CanBeFinal")
 public class BlockConfig {
     @ConfigCategory(name = "Redstone", multiplayerSynced = true)
     public RedstoneConfig redstone = new RedstoneConfig();

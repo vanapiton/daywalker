@@ -2,7 +2,6 @@ package fi._1up.daywalker;
 
 import fi._1up.daywalker.impl.BlockLightRegistry;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.loader.api.entrypoint.PreLaunchEntrypoint;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

@@ -5,6 +5,7 @@ import net.glasslauncher.mods.gcapi3.api.ConfigEntry;
 import static fi._1up.daywalker.Daywalker.MAX_CONFIG;
 import static fi._1up.daywalker.Daywalker.MIN_CONFIG;
 
+@SuppressWarnings("CanBeFinal")
 public class SkyConfig {
     @ConfigEntry(
         name = "Sunlight level",

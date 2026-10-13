@@ -6,6 +6,7 @@ import net.glasslauncher.mods.gcapi3.api.ConfigRoot;
 import net.glasslauncher.mods.gcapi3.api.PreConfigSavedListener;
 import net.glasslauncher.mods.gcapi3.impl.GlassYamlFile;
 
+@SuppressWarnings("CanBeFinal")
 public class RootConfig implements PreConfigSavedListener {
     @ConfigRoot(value = "config", nameKey = "options.daywalker.name", visibleName = "Daywalker Config")
     public static final ConfigFields CONFIG = new ConfigFields();
