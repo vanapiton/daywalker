@@ -1,0 +1,39 @@
+{
+    "schemaVersion": 1,
+    "id": "daywalker",
+    "version": "${version}",
+    "name": "Daywalker",
+    "description": "Adds options to control sunlight, moonlight, blocklight, the spawning and burning of mobs, and light level related block behavior.",
+    "authors": [
+        "Vanapiton"
+    ],
+    "contact": {
+        "homepage": "https://daywalker.1up.fi/",
+        "sources": "https://github.com/vanapiton/daywalker",
+        "issues": "https://github.com/vanapiton/daywalker/issues"
+    },
+    "license": "MIT",
+    "icon": "assets/daywalker/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "fi._1up.daywalker.Daywalker"
+        ],
+        "gcapi3": [
+            "fi._1up.daywalker.config.RootConfig"
+        ],
+        "gcapi3:presave": [
+            "fi._1up.daywalker.config.RootConfig"
+        ]
+    },
+    "mixins": [
+        "daywalker.mixins.json"
+    ],
+    "depends": {
+        "minecraft": "1.0.0-beta.7.3"
+    },
+    "suggests": {
+        "gcapi3": "*",
+        "modmenu": "*"
+    }
+}

@@ -1,0 +1,95 @@
+---
+name: "Build and publish"
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    name: "Build"
+    runs-on: "ubuntu-latest"
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+
+      - name: Setup JDK
+        uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: "25"
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+
+      - name: Build with Gradle
+        run: ./gradlew build
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: build/libs/*.jar
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: build/docs/javadoc
+
+  publish-github:
+    name: "Publish to GitHub"
+    needs: "build"
+    runs-on: "ubuntu-latest"
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: build/libs
+
+      - name: Publish to GitHub
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          github-files: |
+            build/libs/!(*-@(dev|sources|javadoc)).jar
+            build/libs/*-@(dev|sources|javadoc).jar
+
+  publish:
+    name: "Publish to Modrinth"
+    needs: "build"
+    runs-on: "ubuntu-latest"
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: build
+          path: build/libs
+
+      - name: Publish to Modrinth
+        uses: Kir-Antipov/mc-publish@v3.3
+        with:
+          files: build/libs/!(*-@(dev|sources|javadoc)).jar
+          game-version-filter: betas
+
+          modrinth-token: ${{ secrets.MODRINTH_TOKEN }}
+          modrinth-game-versions: b1.7.3
+          modrinth-id: ${{ vars.MODRINTH_ID }}
+          modrinth-dependencies: |
+            rFeWTq4G(optional)
+            vf3X9pHM(optional)
+
+          # Modrinth thinks fabric isn't available for older Minecraft versions
+          loaders: babric #fabric
