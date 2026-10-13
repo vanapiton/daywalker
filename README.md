@@ -23,7 +23,7 @@ This mod requires the following in order to function:
 
 ## Compatibility
 
-Mixes into `World`, `CropBlock`, `IceBlock`, `MushroomPlantBlock`, `PlantBlock`, `SaplingBlock`, `SnowyBlock`, `AnimalEntity`, `CreeperEntity`, `MonsterEntity`, `SpiderEntity`, `ZombieEntity`, `SkeletonEntity`.
+Mixes into `World`, `AnimalEntity`, `CreeperEntity`, `MonsterEntity`, `SkeletonEntity`, `SpiderEntity`, `ZombieEntity`, `CropBlock`, `IceBlock`, `MushroomPlantBlock`, `PlantBlock`, `SaplingBlock`, `SnowyBlock`.
 
 Writes to `Block.BLOCKS_LIGHT_LUMINANCE`.
 
