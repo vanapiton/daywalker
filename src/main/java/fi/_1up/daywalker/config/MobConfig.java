@@ -15,11 +15,23 @@ public class MobConfig {
     public Integer monsterSpawnThresh = 8;
 
     @ConfigEntry(
+        name = "Monsters only spawn on stone",
+        multiplayerSynced = true
+    )
+    public Boolean monstersSpawnOnStone = false;
+
+    @ConfigEntry(
         name = "Animals spawn above level",
         minValue = MIN_CONFIG, maxValue = MAX_CONFIG,
         multiplayerSynced = true
     )
     public Integer animalSpawnThresh = 8;
+
+    @ConfigEntry(
+        name = "Animals only spawn on grass",
+        multiplayerSynced = true
+    )
+    public Boolean animalsSpawnOnGrass = true;
 
     @ConfigEntry(
         name = "Spiders are hostile below level",
