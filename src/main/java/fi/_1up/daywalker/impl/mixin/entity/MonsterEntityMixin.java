@@ -35,7 +35,7 @@ public abstract class MonsterEntityMixin {
         MonsterEntity me = (MonsterEntity) (Object) this;
 
         int x = MathHelper.floor(me.x);
-        int y = MathHelper.floor(me.boundingBox.minY + 0.5);
+        int y = MathHelper.floor(me.boundingBox.minY);
         int z = MathHelper.floor(me.z);
 
         return me.world.getBlockId(x, y - 1, z) == Block.STONE.id;
